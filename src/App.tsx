@@ -259,7 +259,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f0e0c] text-[#f5f1e8] flex flex-col selection:bg-[#d4af37] selection:text-black">
+    <div className="min-h-screen bg-[#0f0e0c] text-[#f5f1e8] flex flex-col selection:bg-[#d4af37] selection:text-black w-full max-w-full overflow-x-hidden">
       
       {/* Header */}
       <Header

@@ -47,18 +47,18 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="sticky top-0 z-40 w-full bg-[#14120e]/95 backdrop-blur-md border-b border-[#2d271e] text-[#f8f5ee]">
       {/* Top micro announcement bar */}
-      <div className="bg-gradient-to-r from-[#8b6528] via-[#d4af37] to-[#8b6528] text-[#120f0a] px-4 py-1.5 text-xs font-semibold tracking-wide">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 truncate">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-700 animate-pulse" />
-            <span className="font-bold">Freshly Baked in Gacuriro & Gisozi</span>
-            <span className="hidden sm:inline text-black/80">• Same-day Kigali Delivery in 35-50 mins</span>
+      <div className="bg-gradient-to-r from-[#8b6528] via-[#d4af37] to-[#8b6528] text-[#120f0a] px-2.5 sm:px-4 py-1.5 text-xs font-semibold tracking-wide">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 truncate">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-700 animate-pulse shrink-0" />
+            <span className="font-bold text-[11px] sm:text-xs truncate">Freshly Baked in Gacuriro & Gisozi</span>
+            <span className="hidden sm:inline text-black/80 truncate">• Same-day Kigali Delivery in 35-50 mins</span>
           </div>
-          <div className="flex items-center gap-3 sm:gap-4 text-xs font-bold shrink-0">
+          <div className="flex items-center gap-2 sm:gap-4 text-xs font-bold shrink-0">
             <button
               onClick={onOpenAdmin}
               id="header-checkin-link"
-              className="text-[#120f0a] hover:text-black font-semibold text-xs transition-colors hover:underline"
+              className="text-[#120f0a] hover:text-black font-bold text-[11px] sm:text-xs transition-colors hover:underline shrink-0"
             >
               Check In
             </button>
@@ -85,13 +85,13 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Main Header Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-        <div className="flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           
           {/* Logo & Brand Identity */}
-          <div className="flex items-center gap-3">
-            <a href="#" className="flex items-center gap-3 group">
-              <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden border-2 border-[#d4af37]/60 shadow-lg shadow-black/40 group-hover:border-[#d4af37] transition-all shrink-0">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <a href="#" className="flex items-center gap-2 sm:gap-3 group min-w-0">
+              <div className="relative w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-[#d4af37]/60 shadow-lg shadow-black/40 group-hover:border-[#d4af37] transition-all shrink-0">
                 <img 
                   src={getSafeImageUrl('/images/tanuri_logo_1788298783175.jpg', FALLBACK_CAKE_IMAGE)} 
                   alt="Tanuri Pastries Kigali Logo"
@@ -100,19 +100,19 @@ export const Header: React.FC<HeaderProps> = ({
                   className="w-full h-full object-cover scale-105"
                 />
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-['Cinzel',serif] text-lg sm:text-2xl font-bold tracking-wider text-[#fcf9f2] group-hover:text-[#d4af37] transition-colors">
+              <div className="flex flex-col min-w-0">
+                <div className="flex items-center gap-1 sm:gap-1.5 truncate">
+                  <span className="font-['Cinzel',serif] text-base sm:text-2xl font-bold tracking-wider text-[#fcf9f2] group-hover:text-[#d4af37] transition-colors truncate">
                     TANURI
                   </span>
-                  <span className="font-['Cinzel',serif] text-xs sm:text-sm tracking-widest text-[#d4af37] font-semibold">
+                  <span className="font-['Cinzel',serif] text-[10px] sm:text-sm tracking-widest text-[#d4af37] font-semibold truncate">
                     PASTRIES
                   </span>
                 </div>
-                <span className="text-[10px] sm:text-xs text-[#a89f8e] tracking-wider uppercase font-medium flex items-center gap-1">
+                <span className="text-[9px] sm:text-xs text-[#a89f8e] tracking-wider uppercase font-medium flex items-center gap-1 truncate">
                   <span>Kigali</span>
-                  <span>•</span>
-                  <span>Artisanal Cakes & Bakes</span>
+                  <span className="hidden sm:inline">•</span>
+                  <span className="hidden sm:inline">Artisanal Cakes & Bakes</span>
                 </span>
               </div>
             </a>
@@ -191,17 +191,18 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Action Buttons: Custom Cake Builder & Cart */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Custom Cake CTA */}
             <button
               onClick={onOpenCustomCake}
               id="custom-cake-builder-header-btn"
-              className="relative group flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-[#99732b] via-[#c99f3b] to-[#99732b] text-[#120e09] font-bold text-xs sm:text-sm hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[#c99f3b]/10"
+              className="relative group flex items-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-[#99732b] via-[#c99f3b] to-[#99732b] text-[#120e09] font-bold text-xs sm:text-sm hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[#c99f3b]/10 shrink-0"
             >
-              <Cake className="w-4 h-4" />
-              <span className="hidden sm:inline">Custom Cake Builder</span>
-              <span className="sm:hidden">Custom Cake</span>
-              <span className="absolute -top-1.5 -right-1.5 px-1.5 py-0.2 rounded-full bg-red-600 text-white text-[9px] font-extrabold uppercase animate-bounce">
+              <Cake className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+              <span className="hidden md:inline">Custom Cake Builder</span>
+              <span className="hidden sm:inline md:hidden">Custom Cake</span>
+              <span className="sm:hidden text-[11px]">Cake</span>
+              <span className="absolute -top-1 -right-1 px-1 py-0.2 rounded-full bg-red-600 text-white text-[8px] sm:text-[9px] font-extrabold uppercase animate-bounce">
                 Hot
               </span>
             </button>
@@ -209,22 +210,22 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Mobile Search Toggle */}
             <button
               onClick={() => setIsSearchMobileOpen(!isSearchMobileOpen)}
-              className="md:hidden p-2.5 rounded-xl bg-[#1d1914] border border-[#383024] text-[#c9c1b3] hover:text-white"
+              className="md:hidden p-1.5 sm:p-2.5 rounded-xl bg-[#1d1914] border border-[#383024] text-[#c9c1b3] hover:text-white shrink-0"
               aria-label="Search"
             >
-              <Search className="w-4 h-4" />
+              <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
 
             {/* Cart Drawer Trigger */}
             <button
               onClick={onOpenCart}
               id="header-cart-btn"
-              className="relative flex items-center gap-2.5 px-3.5 sm:px-4 py-2 rounded-xl bg-[#231d16] border border-[#4a3e2c] hover:border-[#d4af37] text-white hover:bg-[#2d251c] transition-all active:scale-95 shadow-md"
+              className="relative flex items-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#231d16] border border-[#4a3e2c] hover:border-[#d4af37] text-white hover:bg-[#2d251c] transition-all active:scale-95 shadow-md shrink-0"
             >
               <div className="relative">
-                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-[#d4af37]" />
+                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-[#d4af37] shrink-0" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2.5 min-w-5 h-5 px-1 rounded-full bg-red-600 text-white text-[11px] font-bold flex items-center justify-center animate-scale-in">
+                  <span className="absolute -top-1.5 -right-2 min-w-4 h-4 sm:min-w-5 sm:h-5 px-1 rounded-full bg-red-600 text-white text-[9px] sm:text-[11px] font-bold flex items-center justify-center animate-scale-in">
                     {cartCount}
                   </span>
                 )}

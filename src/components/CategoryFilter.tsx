@@ -31,17 +31,17 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case 'Sparkles':
-        return <Sparkles className="w-4 h-4" />;
+        return <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />;
       case 'Cake':
-        return <Cake className="w-4 h-4" />;
+        return <Cake className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />;
       case 'Cookie':
-        return <Cookie className="w-4 h-4" />;
+        return <Cookie className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />;
       case 'Gift':
-        return <Gift className="w-4 h-4" />;
+        return <Gift className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />;
       case 'Sandwich':
-        return <Sandwich className="w-4 h-4" />;
+        return <Sandwich className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />;
       default:
-        return <Cake className="w-4 h-4" />;
+        return <Cake className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />;
     }
   };
 
@@ -53,11 +53,11 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   ];
 
   return (
-    <div className="w-full bg-[#14120e] py-4 border-b border-[#29231a] sticky top-[69px] z-30 backdrop-blur-md bg-opacity-95">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
+    <div className="w-full bg-[#14120e] py-3 sm:py-4 border-b border-[#29231a] sticky top-[50px] sm:top-[69px] z-30 backdrop-blur-md bg-opacity-95">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 space-y-2.5 sm:space-y-3">
         
         {/* Main Category Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1 scrollbar-none w-full max-w-full">
           {CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (
@@ -65,7 +65,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
                 key={cat.id}
                 onClick={() => onSelectCategory(cat.id)}
                 id={`category-tab-${cat.id}`}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
                   isActive
                     ? 'bg-gradient-to-r from-[#d4af37] to-[#b88c29] text-[#120f0a] shadow-lg shadow-[#d4af37]/20 font-bold'
                     : 'bg-[#1e1914] text-[#c9c1b3] hover:text-white hover:bg-[#28221b] border border-[#382f22]'
@@ -73,7 +73,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
               >
                 <span>{getCategoryIcon(cat.icon)}</span>
                 <span>{cat.name}</span>
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
+                <span className={`text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
                   isActive ? 'bg-[#120f0a]/20 text-[#120f0a]' : 'bg-[#2b241a] text-[#8e8574]'
                 }`}>
                   {cat.count}

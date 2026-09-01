@@ -78,20 +78,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       </div>
 
       {/* Content Section */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+      <div className="p-3.5 sm:p-5 flex-1 flex flex-col justify-between">
         
         <div>
           {/* Rating & Reviews */}
-          <div className="flex items-center justify-between gap-2 text-xs mb-1.5">
+          <div className="flex items-center justify-between gap-1.5 text-xs mb-1.5 flex-wrap">
             <div className="flex items-center gap-1 text-[#d4af37]">
-              <Star className="w-3.5 h-3.5 fill-[#d4af37]" />
+              <Star className="w-3.5 h-3.5 fill-[#d4af37] shrink-0" />
               <span className="font-bold text-[#f5f1e8] text-xs">{product.rating}</span>
-              <span className="text-[#8e8574] text-[11px]">({product.reviewsCount})</span>
+              <span className="text-[#8e8574] text-[10px] sm:text-[11px]">({product.reviewsCount})</span>
             </div>
             
             {product.supportsCustomMessage && (
-              <span className="text-[10px] font-semibold text-[#86efac] flex items-center gap-0.5">
-                <Sparkles className="w-2.5 h-2.5" /> Free Custom Text
+              <span className="text-[9px] sm:text-[10px] font-semibold text-[#86efac] flex items-center gap-0.5">
+                <Sparkles className="w-2.5 h-2.5 shrink-0" /> Free Custom Text
               </span>
             )}
           </div>
@@ -99,27 +99,27 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {/* Product Title */}
           <h3 
             onClick={() => onSelectProduct(product)}
-            className="font-['Cinzel',serif] text-sm sm:text-base font-bold text-[#fcf9f2] group-hover:text-[#d4af37] transition-colors line-clamp-1 cursor-pointer"
+            className="font-['Cinzel',serif] text-xs sm:text-base font-bold text-[#fcf9f2] group-hover:text-[#d4af37] transition-colors line-clamp-1 cursor-pointer"
           >
             {product.name}
           </h3>
 
           {/* Description */}
-          <p className="mt-1.5 text-xs text-[#a89e8e] line-clamp-2 leading-relaxed">
+          <p className="mt-1 text-[11px] sm:text-xs text-[#a89e8e] line-clamp-2 leading-relaxed">
             {product.description}
           </p>
         </div>
 
         {/* Bottom Price & Add to Cart */}
-        <div className="mt-4 pt-3 border-t border-[#292217] flex items-center justify-between gap-2">
-          <div>
-            <span className="text-[10px] text-[#8e8574] block">Price</span>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-sm sm:text-base font-extrabold text-[#f3ece0]">
+        <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-[#292217] flex items-center justify-between gap-1.5">
+          <div className="min-w-0">
+            <span className="text-[9px] sm:text-[10px] text-[#8e8574] block">Price</span>
+            <div className="flex items-baseline gap-1 truncate">
+              <span className="text-xs sm:text-base font-extrabold text-[#f3ece0]">
                 {formatRWF(product.price)}
               </span>
               {product.originalPrice && (
-                <span className="text-[11px] text-[#736a5c] line-through">
+                <span className="text-[10px] sm:text-[11px] text-[#736a5c] line-through hidden sm:inline">
                   {formatRWF(product.originalPrice)}
                 </span>
               )}
@@ -128,10 +128,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
           <button
             onClick={() => onSelectProduct(product)}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#2b241a] hover:bg-[#d4af37] text-[#f7f2e7] hover:text-black border border-[#453826] hover:border-[#d4af37] text-xs font-bold transition-all duration-200 active:scale-95 shadow-sm"
+            className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-[#2b241a] hover:bg-[#d4af37] text-[#f7f2e7] hover:text-black border border-[#453826] hover:border-[#d4af37] text-xs font-bold transition-all duration-200 active:scale-95 shadow-sm shrink-0"
           >
-            <span>Customize</span>
-            <Plus className="w-3.5 h-3.5" />
+            <span className="text-[11px] sm:text-xs">Customize</span>
+            <Plus className="w-3.5 h-3.5 shrink-0" />
           </button>
         </div>
 
