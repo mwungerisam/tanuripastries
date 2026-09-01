@@ -1,0 +1,6 @@
+{
+  "name": "Tanuri Pastries Kigali",
+  "description": "Artisanal celebration cakes, custom event bakes, and gourmet pastries in Kigali with instant ordering, custom cake designer, and fast delivery across Kigali.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
