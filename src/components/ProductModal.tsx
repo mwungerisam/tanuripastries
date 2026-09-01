@@ -351,19 +351,20 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             <button
               type="button"
               onClick={handleInstantWhatsApp}
-              className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-[#1c2c1e] hover:bg-[#253d29] border border-[#2d5234] text-[#86efac] font-bold text-xs sm:text-sm transition-all active:scale-95"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 sm:px-4 py-3 rounded-xl bg-[#1c2c1e] hover:bg-[#253d29] border border-[#2d5234] text-[#86efac] font-bold text-xs sm:text-sm transition-all active:scale-95 shrink-0"
             >
               <MessageCircle className="w-4 h-4 text-[#4ade80]" />
               <span className="hidden sm:inline">WhatsApp Order</span>
+              <span className="sm:hidden">WhatsApp</span>
             </button>
 
             <button
               type="button"
               onClick={handleAdd}
               id="modal-add-to-basket-btn"
-              className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#b38930] via-[#d4af37] to-[#b38930] text-[#120f0a] font-extrabold text-xs sm:text-sm hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-[#d4af37]/15"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-3 rounded-xl bg-gradient-to-r from-[#b38930] via-[#d4af37] to-[#b38930] text-[#120f0a] font-extrabold text-xs sm:text-sm hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-[#d4af37]/15 whitespace-nowrap"
             >
-              <ShoppingBag className="w-4 h-4" />
+              <ShoppingBag className="w-4 h-4 shrink-0" />
               <span>Add to Basket • {formatRWF(totalPrice)}</span>
             </button>
           </div>
