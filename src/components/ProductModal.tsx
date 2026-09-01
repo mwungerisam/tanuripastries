@@ -14,6 +14,7 @@ import {
 import { Product, CartItemOption } from '../types';
 import { formatRWF } from '../utils/format';
 import { STORE_INFO } from '../data/menuData';
+import { getSafeImageUrl, handleImageError, FALLBACK_CAKE_IMAGE, FALLBACK_PASTRY_IMAGE } from '../utils/imageUtils';
 
 interface ProductModalProps {
   product: Product | null;
@@ -102,9 +103,10 @@ export const ProductModal: React.FC<ProductModalProps> = ({
         {/* Header with Close Button */}
         <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden bg-[#241e17] shrink-0">
           <img
-            src={product.image}
+            src={getSafeImageUrl(product.image, product.category === 'pastries-viennoiserie' ? FALLBACK_PASTRY_IMAGE : FALLBACK_CAKE_IMAGE)}
             alt={product.name}
             referrerPolicy="no-referrer"
+            onError={(e) => handleImageError(e, product.category === 'pastries-viennoiserie' ? FALLBACK_PASTRY_IMAGE : FALLBACK_CAKE_IMAGE)}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#18140f] via-[#18140f]/40 to-black/60" />

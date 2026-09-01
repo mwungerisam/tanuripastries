@@ -12,6 +12,7 @@ import {
   Cake
 } from 'lucide-react';
 import { STORE_INFO, FAQS } from '../data/menuData';
+import { getSafeImageUrl, handleImageError, FALLBACK_CAKE_IMAGE } from '../utils/imageUtils';
 
 interface FooterProps {
   onOpenAdmin?: () => void;
@@ -76,9 +77,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full overflow-hidden border border-[#d4af37]/60">
                 <img 
-                  src="/src/assets/images/tanuri_logo_1788298783175.jpg" 
+                  src={getSafeImageUrl('/images/tanuri_logo_1788298783175.jpg', FALLBACK_CAKE_IMAGE)} 
                   alt="Tanuri Pastries"
                   referrerPolicy="no-referrer"
+                  onError={(e) => handleImageError(e, FALLBACK_CAKE_IMAGE)}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -197,9 +199,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             {onOpenAdmin && (
               <button
                 onClick={onOpenAdmin}
-                className="text-[#d4af37] hover:underline font-semibold flex items-center gap-1"
+                id="footer-checkin-link"
+                className="text-[#9c907f] hover:text-[#d4af37] transition-colors text-xs"
               >
-                <span>⚙️ Bakery Staff Admin Portal</span>
+                Check In
               </button>
             )}
             <p className="flex items-center gap-1">

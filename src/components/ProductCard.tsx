@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { Product } from '../types';
 import { formatRWF } from '../utils/format';
+import { getSafeImageUrl, handleImageError, FALLBACK_CAKE_IMAGE, FALLBACK_PASTRY_IMAGE } from '../utils/imageUtils';
 
 interface ProductCardProps {
   product: Product;
@@ -28,9 +29,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       {/* Product Image Section */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1f1a14] cursor-pointer" onClick={() => onSelectProduct(product)}>
         <img
-          src={product.image}
+          src={getSafeImageUrl(product.image, product.category === 'pastries-viennoiserie' ? FALLBACK_PASTRY_IMAGE : FALLBACK_CAKE_IMAGE)}
           alt={product.name}
           referrerPolicy="no-referrer"
+          onError={(e) => handleImageError(e, product.category === 'pastries-viennoiserie' ? FALLBACK_PASTRY_IMAGE : FALLBACK_CAKE_IMAGE)}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />

@@ -18,6 +18,7 @@ import {
 import { CartItem, DeliveryZone } from '../types';
 import { formatRWF, generateWhatsAppOrderUrl } from '../utils/format';
 import { STORE_INFO, DELIVERY_ZONES } from '../data/menuData';
+import { getSafeImageUrl, handleImageError, FALLBACK_CAKE_IMAGE } from '../utils/imageUtils';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -225,9 +226,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     className="p-3 rounded-2xl bg-[#1d1711] border border-[#382d1e] flex gap-3"
                   >
                     <img
-                      src={item.product.image}
+                      src={getSafeImageUrl(item.product.image, FALLBACK_CAKE_IMAGE)}
                       alt={item.product.name}
                       referrerPolicy="no-referrer"
+                      onError={(e) => handleImageError(e, FALLBACK_CAKE_IMAGE)}
                       className="w-16 h-16 rounded-xl object-cover shrink-0 border border-[#3b3021]"
                     />
 

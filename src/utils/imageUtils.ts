@@ -1,7 +1,36 @@
+import React from 'react';
+
 /**
  * Utility to process, compress and convert uploaded image files to lightweight Data URLs
  * to ensure smooth performance and safe localStorage persistence.
  */
+
+export const FALLBACK_CAKE_IMAGE = '/images/tanuri_cake_chocolate_1788298831775.jpg';
+export const FALLBACK_PASTRY_IMAGE = '/images/tanuri_croissants_1788298858039.jpg';
+export const FALLBACK_BERRY_IMAGE = '/images/tanuri_vanilla_berry_1788298844963.jpg';
+
+/**
+ * Returns a guaranteed valid image URL with automatic resolution for relative paths,
+ * public asset paths, and graceful fallbacks.
+ */
+export const getSafeImageUrl = (url?: string, fallback = FALLBACK_CAKE_IMAGE): string => {
+  if (!url || typeof url !== 'string' || !url.trim()) {
+    return fallback;
+  }
+  const trimmed = url.trim();
+  // Map /src/assets/images/... to /images/... for production & static serving
+  if (trimmed.startsWith('/src/assets/images/')) {
+    return trimmed.replace('/src/assets/images/', '/images/');
+  }
+  return trimmed;
+};
+
+export const handleImageError = (event: React.SyntheticEvent<HTMLImageElement, Event>, fallback = FALLBACK_CAKE_IMAGE) => {
+  const target = event.currentTarget;
+  if (target && target.src !== fallback) {
+    target.src = fallback;
+  }
+};
 
 export const processImageFile = (file: File, maxWidth = 900, maxHeight = 900, quality = 0.85): Promise<string> => {
   return new Promise((resolve, reject) => {
@@ -54,17 +83,17 @@ export const processImageFile = (file: File, maxWidth = 900, maxHeight = 900, qu
 export const BAKERY_IMAGE_PRESETS = [
   {
     name: 'Belgian Chocolate Ganache',
-    url: '/src/assets/images/tanuri_cake_chocolate_1788298831775.jpg',
+    url: '/images/tanuri_cake_chocolate_1788298831775.jpg',
     category: 'celebration-cakes',
   },
   {
     name: 'Vanilla & Fresh Berry Velvet',
-    url: '/src/assets/images/tanuri_vanilla_berry_1788298844963.jpg',
+    url: '/images/tanuri_vanilla_berry_1788298844963.jpg',
     category: 'celebration-cakes',
   },
   {
     name: 'Golden French Croissants',
-    url: '/src/assets/images/tanuri_croissants_1788298858039.jpg',
+    url: '/images/tanuri_croissants_1788298858039.jpg',
     category: 'pastries-viennoiserie',
   },
   {

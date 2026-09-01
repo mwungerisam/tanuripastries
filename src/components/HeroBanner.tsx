@@ -11,6 +11,7 @@ import {
   Award
 } from 'lucide-react';
 import { STORE_INFO } from '../data/menuData';
+import { getSafeImageUrl, handleImageError } from '../utils/imageUtils';
 
 interface HeroBannerProps {
   onExploreMenu: () => void;
@@ -110,9 +111,10 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
             <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full">
               <div className="relative w-full h-full">
                 <img 
-                  src="/src/assets/images/tanuri_hero_banner_1788298801678.jpg" 
+                  src={getSafeImageUrl('/images/tanuri_hero_banner_1788298801678.jpg')} 
                   alt="Tanuri Pastries Kigali Artisanal Cake and Pastry Display"
                   referrerPolicy="no-referrer"
+                  onError={(e) => handleImageError(e, '/images/tanuri_cake_chocolate_1788298831775.jpg')}
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#1a1611] via-transparent to-transparent opacity-90 lg:opacity-70" />

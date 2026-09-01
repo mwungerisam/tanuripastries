@@ -16,6 +16,7 @@ import {
 import { STORE_INFO, DELIVERY_ZONES } from '../data/menuData';
 import { DeliveryZone } from '../types';
 import { formatRWF } from '../utils/format';
+import { getSafeImageUrl, handleImageError, FALLBACK_CAKE_IMAGE } from '../utils/imageUtils';
 
 interface HeaderProps {
   cartCount: number;
@@ -56,10 +57,10 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-3 sm:gap-4 text-xs font-bold shrink-0">
             <button
               onClick={onOpenAdmin}
-              className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/40 hover:bg-black/70 text-[#f7f2e7] border border-black/30 hover:border-[#120f0a] transition-all text-[11px]"
+              id="header-checkin-link"
+              className="text-[#120f0a] hover:text-black font-semibold text-xs transition-colors hover:underline"
             >
-              <SlidersHorizontal className="w-3 h-3 text-[#d4af37]" />
-              <span>Admin Studio</span>
+              Check In
             </button>
             <a 
               href={`https://wa.me/${STORE_INFO.whatsappNumber}`} 
@@ -92,9 +93,10 @@ export const Header: React.FC<HeaderProps> = ({
             <a href="#" className="flex items-center gap-3 group">
               <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden border-2 border-[#d4af37]/60 shadow-lg shadow-black/40 group-hover:border-[#d4af37] transition-all shrink-0">
                 <img 
-                  src="/src/assets/images/tanuri_logo_1788298783175.jpg" 
+                  src={getSafeImageUrl('/images/tanuri_logo_1788298783175.jpg', FALLBACK_CAKE_IMAGE)} 
                   alt="Tanuri Pastries Kigali Logo"
                   referrerPolicy="no-referrer"
+                  onError={(e) => handleImageError(e, FALLBACK_CAKE_IMAGE)}
                   className="w-full h-full object-cover scale-105"
                 />
               </div>

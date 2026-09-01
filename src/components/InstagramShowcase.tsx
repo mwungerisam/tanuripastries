@@ -1,6 +1,7 @@
 import React from 'react';
 import { Instagram, Heart, MessageCircle, ExternalLink, Sparkles } from 'lucide-react';
 import { STORE_INFO, INSTAGRAM_POSTS } from '../data/menuData';
+import { getSafeImageUrl, handleImageError, FALLBACK_CAKE_IMAGE } from '../utils/imageUtils';
 
 export const InstagramShowcase: React.FC = () => {
   return (
@@ -46,9 +47,10 @@ export const InstagramShowcase: React.FC = () => {
             >
               <div className="relative aspect-square w-full overflow-hidden bg-[#1f1912]">
                 <img
-                  src={post.image}
+                  src={getSafeImageUrl(post.image, FALLBACK_CAKE_IMAGE)}
                   alt={post.caption}
                   referrerPolicy="no-referrer"
+                  onError={(e) => handleImageError(e, FALLBACK_CAKE_IMAGE)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 

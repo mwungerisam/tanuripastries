@@ -18,7 +18,7 @@ import {
 } from 'lucide-react';
 import { Product } from '../types';
 import { CATEGORIES } from '../data/menuData';
-import { processImageFile, BAKERY_IMAGE_PRESETS } from '../utils/imageUtils';
+import { processImageFile, BAKERY_IMAGE_PRESETS, getSafeImageUrl, handleImageError, FALLBACK_CAKE_IMAGE } from '../utils/imageUtils';
 import { formatRWF } from '../utils/format';
 
 interface AdminProductModalProps {
@@ -444,10 +444,13 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 <div className="relative w-36 h-36 rounded-2xl overflow-hidden bg-black/60 border-2 border-[#d4af37]/40 shrink-0 shadow-lg">
                   {image ? (
                     <img 
-                      src={image} 
+                      src={getSafeImageUrl(image, FALLBACK_CAKE_IMAGE)} 
                       alt="Preview" 
                       className="w-full h-full object-cover"
-                      onError={() => setImageError('Failed to render image from source.')}
+                      onError={(e) => {
+                        handleImageError(e, FALLBACK_CAKE_IMAGE);
+                        setImageError('Source image could not be loaded directly; showing fallback.');
+                      }}
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-[#7a6e5b] p-2 text-center">
@@ -597,7 +600,12 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
                         }`}
                       >
                         <div className="aspect-square rounded-lg overflow-hidden mb-1.5">
-                          <img src={preset.url} alt={preset.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                          <img 
+                            src={getSafeImageUrl(preset.url, FALLBACK_CAKE_IMAGE)} 
+                            alt={preset.name} 
+                            onError={(e) => handleImageError(e, FALLBACK_CAKE_IMAGE)}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform" 
+                          />
                         </div>
                         <p className="text-[10px] font-bold text-white truncate">{preset.name}</p>
                       </button>
