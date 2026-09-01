@@ -501,53 +501,54 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       >
         
         {/* Top Header */}
-        <div className="px-5 sm:px-8 py-3.5 bg-[#1b1510] border-b border-[#2e2316] flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#d4af37] to-[#8b6528] flex items-center justify-center text-black font-extrabold shadow-md">
-              <Sparkles className="w-5 h-5" />
+        <div className="px-4 sm:px-8 py-3 bg-[#1b1510] border-b border-[#2e2316] flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#d4af37] to-[#8b6528] flex items-center justify-center text-black font-extrabold shadow-md shrink-0">
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h2 className="font-['Cinzel',serif] text-base sm:text-lg font-bold text-white tracking-wider">
+                <h2 className="font-['Cinzel',serif] text-sm sm:text-base md:text-lg font-bold text-white tracking-wider truncate">
                   TANURI BAKERY MANAGER
                 </h2>
-                <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#1b3823] text-[#86efac] border border-[#2d5c3a] text-[10px] font-semibold">
+                <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#1b3823] text-[#86efac] border border-[#2d5c3a] text-[10px] font-semibold shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] animate-pulse" />
                   Authenticated Session
                 </span>
               </div>
-              <p className="text-[11px] text-[#8e8574]">
+              <p className="text-[10px] sm:text-[11px] text-[#8e8574] truncate hidden sm:block">
                 Manage cakes, croissant batches, real-time prices, uploaded photos, and Kigali delivery zones
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 ml-auto sm:ml-0">
             <button
               onClick={handleOpenAdd}
               id="admin-add-product-btn"
-              className="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-[#b38930] via-[#d4af37] to-[#b38930] text-black font-bold text-xs sm:text-sm hover:brightness-110 active:scale-95 transition-all shadow-lg"
+              className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-[#b38930] via-[#d4af37] to-[#b38930] text-black font-bold text-xs sm:text-sm hover:brightness-110 active:scale-95 transition-all shadow-lg"
             >
-              <Plus className="w-4 h-4" />
-              <span>+ Add Product</span>
+              <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden xs:inline sm:inline">+ Add Product</span>
+              <span className="xs:hidden sm:hidden">Add</span>
             </button>
 
             {/* Lock / Sign Out */}
             <button
               onClick={handleLockStudio}
               title="Lock Management Studio"
-              className="flex items-center gap-1 px-3 py-2 rounded-xl bg-[#251d15] hover:bg-[#36291d] text-[#c7bcab] hover:text-white border border-[#3b2d1d] text-xs transition-all"
+              className="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-[#251d15] hover:bg-[#36291d] text-[#c7bcab] hover:text-white border border-[#3b2d1d] text-xs transition-all"
             >
               <Lock className="w-3.5 h-3.5 text-[#d4af37]" />
-              <span className="hidden sm:inline">Lock Session</span>
+              <span className="hidden md:inline">Lock Session</span>
             </button>
 
             <button
               onClick={onClose}
-              className="p-2 rounded-xl bg-[#251d15] hover:bg-[#36291d] text-[#8e8574] hover:text-white transition-all"
+              className="p-1.5 sm:p-2 rounded-xl bg-[#251d15] hover:bg-[#36291d] text-[#8e8574] hover:text-white transition-all"
               aria-label="Close"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
