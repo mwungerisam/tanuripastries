@@ -55,7 +55,7 @@ export const InstagramShowcase: React.FC = () => {
                 />
                 
                 {/* Hover overlay with likes and comments */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white text-sm font-bold backdrop-blur-[2px]">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6 text-white text-sm font-bold md:backdrop-blur-[2px]">
                   <div className="flex items-center gap-1.5">
                     <Heart className="w-4 h-4 fill-red-500 text-red-500" />
                     <span>{post.likes}</span>
@@ -66,7 +66,7 @@ export const InstagramShowcase: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="absolute top-2.5 right-2.5 p-1.5 rounded-lg bg-black/60 backdrop-blur-sm text-white">
+                <div className="absolute top-2.5 right-2.5 p-1.5 rounded-lg bg-black/60 md:backdrop-blur-sm text-white">
                   <Instagram className="w-3.5 h-3.5" />
                 </div>
               </div>

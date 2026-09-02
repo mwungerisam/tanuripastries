@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [isSearchMobileOpen, setIsSearchMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#14120e]/95 backdrop-blur-md border-b border-[#2d271e] text-[#f8f5ee]">
+    <header className="sticky top-0 z-40 w-full bg-[#14120e] md:bg-[#14120e]/95 md:backdrop-blur-md border-b border-[#2d271e] text-[#f8f5ee]">
       {/* Top micro announcement bar */}
       <div className="bg-gradient-to-r from-[#8b6528] via-[#d4af37] to-[#8b6528] text-[#120f0a] px-2.5 sm:px-4 py-1.5 text-xs font-semibold tracking-wide">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">

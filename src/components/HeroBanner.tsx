@@ -120,7 +120,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#1a1611] via-transparent to-transparent opacity-90 lg:opacity-70" />
                 
                 {/* Floating Social Badge on Photo */}
-                <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-[#14110cd9]/90 backdrop-blur-md border border-[#4d3e27] rounded-2xl p-3 shadow-xl max-w-[220px]">
+                <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-[#14110c] md:bg-[#14110cd9]/90 md:backdrop-blur-md border border-[#4d3e27] rounded-2xl p-3 shadow-xl max-w-[220px]">
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 rounded-xl bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37]">
                       <Cake className="w-5 h-5" />
@@ -133,7 +133,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                 </div>
 
                 {/* Floating Gacuriro & Gisozi Tag */}
-                <div className="absolute top-4 right-4 bg-[#14110ce0]/85 backdrop-blur-md border border-[#3e3323] px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs text-[#e8e2d5]">
+                <div className="absolute top-4 right-4 bg-[#14110c] md:bg-[#14110ce0]/85 md:backdrop-blur-md border border-[#3e3323] px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs text-[#e8e2d5]">
                   <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
                   <span className="font-semibold text-white">Gacuriro • Gisozi</span>
                 </div>

@@ -48,7 +48,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               className={`px-2 py-0.5 rounded-md text-[10px] font-bold tracking-wide uppercase ${
                 tag.toLowerCase().includes('seller') || tag.toLowerCase().includes('signature')
                   ? 'bg-[#d4af37] text-black shadow-sm'
-                  : 'bg-[#1b1712]/90 backdrop-blur-md text-[#e6decb] border border-[#443827]'
+                  : 'bg-[#1b1712] md:bg-[#1b1712]/90 md:backdrop-blur-md text-[#e6decb] border border-[#443827]'
               }`}
             >
               {tag}
@@ -57,7 +57,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         {/* Prep Time pill */}
-        <div className="absolute bottom-2.5 left-3 flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#120f0c]/85 backdrop-blur-md text-[10px] text-[#c9bfb0] border border-[#2d2417]">
+        <div className="absolute bottom-2.5 left-3 flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#120f0c] md:bg-[#120f0c]/85 md:backdrop-blur-md text-[10px] text-[#c9bfb0] border border-[#2d2417]">
           <Clock className="w-3 h-3 text-[#d4af37]" />
           <span>{product.prepTime}</span>
         </div>

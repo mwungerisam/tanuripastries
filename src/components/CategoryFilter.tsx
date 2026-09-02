@@ -53,7 +53,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   ];
 
   return (
-    <div className="w-full bg-[#14120e] py-3 sm:py-4 border-b border-[#29231a] sticky top-[50px] sm:top-[69px] z-30 backdrop-blur-md bg-opacity-95">
+    <div className="w-full bg-[#14120e] md:bg-[#14120e]/95 py-3 sm:py-4 border-b border-[#29231a] sticky top-[50px] sm:top-[69px] z-30 md:backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 space-y-2.5 sm:space-y-3">
         
         {/* Main Category Tabs */}
