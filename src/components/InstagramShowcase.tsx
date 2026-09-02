@@ -52,6 +52,8 @@ export const InstagramShowcase: React.FC = () => {
                   referrerPolicy="no-referrer"
                   onError={(e) => handleImageError(e, FALLBACK_CAKE_IMAGE)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
                 
                 {/* Hover overlay with likes and comments */}
